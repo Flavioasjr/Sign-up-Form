@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@600&display=swap');
+
+* {
+    font-family: sans-serif;
+}
+
 body {
     margin: 0 8px;
+    min-width: 460px;
 }
 
 .container {
@@ -13,6 +20,7 @@ body {
 .background-image {
     height: 100vh;
     width: 40%;
+    position: relative;
 }
 
 .contents {
@@ -22,7 +30,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #e8ebee;
+    background-color: #f9f9f9;
 }
 
 .header {
@@ -30,6 +38,7 @@ body {
     flex-direction: column;
     margin-bottom: 30px;
     padding-left: 20px;
+    padding-right: 55px;
 }
 
 .sign-up-form{
@@ -41,9 +50,10 @@ body {
 .line-form {
     display: flex;
     gap: 50px;
-    border-bottom: 2px solid #D6D9DC;
+    border-bottom: 2px solid #e5e6e7;
     background-color: #fdfdffa1;
     padding-left: 20px;
+    box-shadow: -2px 2px 2px 1px #e5e6e7;
 }
 
 img {
@@ -53,7 +63,7 @@ img {
 
 label {
     display: block;
-    font-size: 8px;
+    font-size: 9px;
 }
 
 input {
@@ -71,18 +81,19 @@ button {
 input:focus {
     outline: none;
     border: 1px solid #a9bfeb;
-    box-shadow: 0px 1px 1px  #a9bfeb;
+    box-shadow: 0px 2px 5px 1px #a9bfeb;
 }
 
 input:invalid {
     outline: none;
     border: 1px solid red;
 }
-.error::after {
-    content: "Password do not match";
-    font-size: 25px;
-    color: red;
-    
+input:invalid ~.error::after {
+    content: "*Password do not match";
+    font-size: 9px;
+    color: red;   
+    position: relative;
+    top: -24px; 
 }
 
 .sign-up-form > div {
@@ -106,3 +117,47 @@ input:invalid {
     width: 170px;
   }
  
+.logo {
+   position: absolute;
+   top: 20vh;
+   width: 100%;
+   color: #fff;
+   font-size: 50px;
+   text-align: center;
+   padding: 10px 0;
+   background-color: rgba(0, 0, 0, 0.5);
+   font-family: 'Alegreya', sans-serif;
+}
+
+.sign-up-form > p {
+    font-size: 10px;
+    padding-left: 20px;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+.sign-up-form > p > a{
+    text-decoration: none;
+    color: #596D48;
+    font-weight: 700;
+}
+
+.logo > img {
+    height: 70px;
+    width: auto;
+    position: relative;
+    top: 15px;
+}
+
+@media (max-width: 750px) {
+    .line-form {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-height: 460px) {
+    .contents, .background-image {
+        height: 460px;
+    }
+}
